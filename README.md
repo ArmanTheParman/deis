@@ -4,7 +4,7 @@
 To build Bitcoin Deis, either install it using Parmanode (make a selection for Deis when prompted during Bitcoin installation), or
 clone Bitcoin core (a fork provided here in this repo), and modify before compiling (with GUI).
 
-The relevent BASH code in Parmanode is (run just before compiling, after cloning repository):
+The relevant BASH code in Parmanode is (run just before compiling, after cloning repository):
 
 deis="true" #selection flag in earlier menus
 
@@ -12,17 +12,13 @@ export hp=$HOME/parmanode
 
 export pn=$HOME/parman_programs/parmanode
 
-git clone https://github.com/bitcoin/bitcoin $hp/bitcon_github
-
-#alternatively, you can clone from this fork
-
-#git clone https://github.com/armantheparman/deis $hp/bitcoin_github
+git clone https://github.com/armantheparman/deis $hp/bitcoin_github
 
 if [[ $deis == "true" ]] ; then
 
 cd $hp/bitcoin_github 
 
-git checkout v28.1
+git checkout deis_v28.1
 
 cp $pn/src/deis/icons/deis.png $hp/bitcoin_github/src/qt/res/icons/bitcoin.png
 
