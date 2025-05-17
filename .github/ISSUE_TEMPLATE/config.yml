@@ -1,8 +1,8 @@
 blank_issues_enabled: true
 contact_links:
-  - name: Bitcoin Core Security Policy
+  - name: Bitcoin Deis Security Policy
     url: https://github.com/bitcoin/bitcoin/blob/master/SECURITY.md
     about: View security policy
-  - name: Bitcoin Core Developers
+  - name: Bitcoin Deis Developers
     url: https://bitcoincore.org
-    about: Bitcoin Core homepage
+    about: Bitcoin Deis homepage

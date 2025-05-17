@@ -113,7 +113,7 @@ chain for " target " development."))
                                        (base-libc glibc-2.31)
                                        (base-gcc linux-base-gcc))
   "Convenience wrapper around MAKE-CROSS-TOOLCHAIN with default values
-desirable for building Bitcoin Core release binaries."
+desirable for building Bitcoin Deis release binaries."
   (make-cross-toolchain target
                         base-gcc-for-libc
                         base-kernel-headers

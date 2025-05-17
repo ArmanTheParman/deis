@@ -37,7 +37,7 @@ rm $hp/bitcoin_github/share/pixmaps/*
 cp $pn/src/deis/share/icons/pixmaps/* $hp/bitcoin_github/share/pixmaps/*
 
     for file in $(find $hp/bitcoin_github -type f) ; do
-        gsed -i "s/Bitcoin Core/Bitcoin Deis/g" $file
+        gsed -i "s/Bitcoin Deis/Bitcoin Deis/g" $file
     
     done
     

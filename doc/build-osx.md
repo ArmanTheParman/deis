@@ -16,7 +16,7 @@ macOS comes with a built-in Terminal located in:
 ### 1. Xcode Command Line Tools
 
 The Xcode Command Line Tools are a collection of build tools for macOS.
-These tools must be installed in order to build Bitcoin Core from source.
+These tools must be installed in order to build Bitcoin Deis from source.
 
 To install, run the following command from your terminal:
 
@@ -68,7 +68,7 @@ Try `llvm@17` if compilation fails with the default version of llvm.
 ### 4. Clone Bitcoin repository
 
 `git` should already be installed by default on your system.
-Now that all the required dependencies are installed, let's clone the Bitcoin Core repository to a directory.
+Now that all the required dependencies are installed, let's clone the Bitcoin Deis repository to a directory.
 All build scripts and commands will run from this directory.
 
 ``` bash
@@ -102,7 +102,7 @@ brew install berkeley-db@4
 
 ###### Qt
 
-Bitcoin Core includes a GUI built with the cross-platform Qt Framework.
+Bitcoin Deis includes a GUI built with the cross-platform Qt Framework.
 To compile the GUI, we need to install `qt@5`.
 Skip if you don't intend to use the GUI.
 
@@ -177,14 +177,14 @@ brew install python
 
 #### Deploy Dependencies
 
-You can deploy a `.zip` containing the Bitcoin Core application using `make deploy`.
+You can deploy a `.zip` containing the Bitcoin Deis application using `make deploy`.
 It is required that you have `python` installed.
 
-## Building Bitcoin Core
+## Building Bitcoin Deis
 
 ### 1. Configuration
 
-There are many ways to configure Bitcoin Core, here are a few common examples:
+There are many ways to configure Bitcoin Deis, here are a few common examples:
 
 ##### Wallet (BDB + SQlite) Support, No GUI:
 
@@ -228,7 +228,7 @@ Examine the output of the following command for a full list of configuration opt
 ### 2. Compile
 
 After configuration, you are ready to compile.
-Run the following in your terminal to compile Bitcoin Core:
+Run the following in your terminal to compile Bitcoin Deis:
 
 ``` bash
 make        # use "-j N" here for N parallel jobs
@@ -243,9 +243,9 @@ You can also create a  `.zip` containing the `.app` bundle by running the follow
 make deploy
 ```
 
-## Running Bitcoin Core
+## Running Bitcoin Deis
 
-Bitcoin Core should now be available at `./src/bitcoind`.
+Bitcoin Deis should now be available at `./src/bitcoind`.
 If you compiled support for the GUI, it should be available at `./src/qt/bitcoin-qt`.
 
 The first time you run `bitcoind` or `bitcoin-qt`, it will start downloading the blockchain.

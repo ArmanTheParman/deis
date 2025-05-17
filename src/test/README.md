@@ -1,7 +1,7 @@
 # Unit tests
 
 The sources in this directory are unit test cases. Boost includes a
-unit testing framework, and since Bitcoin Core already uses Boost, it makes
+unit testing framework, and since Bitcoin Deis already uses Boost, it makes
 sense to simply use this framework rather than require developers to
 configure some other framework (we want as few impediments to creating
 unit tests as possible).
@@ -62,7 +62,7 @@ test_bitcoin --run_test=getarg_tests/doubledash
 ```
 
 `test_bitcoin` creates a temporary working (data) directory with a randomly
-generated pathname within `test_common_Bitcoin Core/`, which in turn is within
+generated pathname within `test_common_Bitcoin Deis/`, which in turn is within
 the system's temporary directory (see
 [`temp_directory_path`](https://en.cppreference.com/w/cpp/filesystem/temp_directory_path)).
 This data directory looks like a simplified form of the standard `bitcoind` data
@@ -72,7 +72,7 @@ have a `debug.log` file, for example.
 The location of the temporary data directory can be specified with the
 `-testdatadir` option. This can make debugging easier. The directory
 path used is the argument path appended with
-`/test_common_Bitcoin Core/<test-name>/datadir`.
+`/test_common_Bitcoin Deis/<test-name>/datadir`.
 The directory path is created if necessary.
 Specifying this argument also causes the data directory
 not to be removed after the last test. This is useful for looking at
@@ -82,11 +82,11 @@ so no leftover state is used.)
 
 ```bash
 $ test_bitcoin --run_test=getarg_tests/doubledash -- -testdatadir=/somewhere/mydatadir
-Test directory (will not be deleted): "/somewhere/mydatadir/test_common_Bitcoin Core/getarg_tests/doubledash/datadir
+Test directory (will not be deleted): "/somewhere/mydatadir/test_common_Bitcoin Deis/getarg_tests/doubledash/datadir
 Running 1 test case...
 
 *** No errors detected
-$ ls -l '/somewhere/mydatadir/test_common_Bitcoin Core/getarg_tests/doubledash/datadir'
+$ ls -l '/somewhere/mydatadir/test_common_Bitcoin Deis/getarg_tests/doubledash/datadir'
 total 8
 drwxrwxr-x 2 admin admin 4096 Nov 27 22:45 blocks
 -rw-rw-r-- 1 admin admin 1003 Nov 27 22:45 debug.log
