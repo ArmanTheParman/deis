@@ -20,6 +20,10 @@ git clone https://github.com/bitcoin/bitcoin $hp/bitcon_github
 
 if [[ $deis == "true" ]] ; then
 
+cd $hp/bitcoin_github 
+
+git checkout v28.1
+
 cp $pn/src/deis/icons/deis.png $hp/bitcoin_github/src/qt/res/icons/bitcoin.png
 
 cp $pn/src/deis/icons/deis.ico $hp/bitcoin_github/src/qt/res/icons/bitcoin.ico
