@@ -1,78 +1,50 @@
-Bitcoin Core integration/staging tree
+# Bitcoin Deis
 =====================================
 
-https://bitcoincore.org
+To build Bitcoin Deis, either install it using Parmanode (make a selection for Deis when prompted during Bitcoin installation), or
+clone Bitcoin core (a fork provided here in this repo), and modify before compiling (with GUI).
 
-For an immediately usable, binary version of the Bitcoin Core software, see
-https://bitcoincore.org/en/download/.
+The relevent BASH code in Parmanode is (run just before compiling, after cloning repository):
 
-What is Bitcoin Core?
----------------------
+deis="true" #selection flag in earlier menus
 
-Bitcoin Core connects to the Bitcoin peer-to-peer network to download and fully
-validate blocks and transactions. It also includes a wallet and graphical user
-interface, which can be optionally built.
+export hp=$HOME/parmanode
 
-Further information about Bitcoin Core is available in the [doc folder](/doc).
+export pn=$HOME/parman_programs/parmanode
 
-License
--------
+git clone https://github.com/bitcoin/bitcoin $hp/bitcon_github
 
-Bitcoin Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
-information or see https://opensource.org/licenses/MIT.
+#alternatively, you can clone from this fork
 
-Development Process
--------------------
+#git clone https://github.com/armantheparman/deis $hp/bitcoin_github
 
-The `master` branch is regularly built (see `doc/build-*.md` for instructions) and tested, but it is not guaranteed to be
-completely stable. [Tags](https://github.com/bitcoin/bitcoin/tags) are created
-regularly from release branches to indicate new official, stable release versions of Bitcoin Core.
+if [[ $deis == "true" ]] ; then
 
-The https://github.com/bitcoin-core/gui repository is used exclusively for the
-development of the GUI. Its master branch is identical in all monotree
-repositories. Release branches and tags do not exist, so please do not fork
-that repository unless it is for development reasons.
+cd $hp/bitcoin_github 
 
-The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md)
-and useful hints for developers can be found in [doc/developer-notes.md](doc/developer-notes.md).
+git checkout v28.1
 
-Testing
--------
+cp $pn/src/deis/icons/deis.png $hp/bitcoin_github/src/qt/res/icons/bitcoin.png
 
-Testing and code review is the bottleneck for development; we get more pull
-requests than we can review and test on short notice. Please be patient and help out by testing
-other people's pull requests, and remember this is a security-critical project where any mistake might cost people
-lots of money.
+cp $pn/src/deis/icons/deis.ico $hp/bitcoin_github/src/qt/res/icons/bitcoin.ico
 
-### Automated Testing
+cp $pn/src/deis/deis.svg $hp/bitcoin_github/src/qt/res/src/bitcoin.svg
 
-Developers are strongly encouraged to write [unit tests](src/test/README.md) for new code, and to
-submit new unit tests for old code. Unit tests can be compiled and run
-(assuming they weren't disabled in configure) with: `make check`. Further details on running
-and extending unit tests can be found in [/src/test/README.md](/src/test/README.md).
+cp $pn/src/deis/share/icons/pixmaps/bitcoin64.png $hp/bitcoin_github/doc/bitcoin_logo_doxygen.png
 
-There are also [regression and integration tests](/test), written
-in Python.
-These tests can be run (if the [test dependencies](/test) are installed) with: `test/functional/test_runner.py`
+rm $hp/bitcoin_github/share/pixmaps/*
 
-The CI (Continuous Integration) systems make sure that every pull request is built for Windows, Linux, and macOS,
-and that unit/sanity tests are run automatically.
+cp $pn/src/deis/share/icons/pixmaps/* $hp/bitcoin_github/share/pixmaps/*
 
-### Manual Quality Assurance (QA) Testing
+    for file in $(find $hp/bitcoin_github -type f) ; do
+        gsed -i "s/Bitcoin Core/Bitcoin Deis/g" $file
+    
+    done
+    
+fi
 
-Changes should be tested by somebody other than the developer who wrote the
-code. This is especially important for large or high-risk changes. It is useful
-to add a test plan to the pull request description if testing the changes is
-not straightforward.
+Now that the image files and the relevant text strings have been modified in the source code, you can compile as normal. Set --with-gui="yes" to also compile QT.
 
-Translations
-------------
+More information on why you should run a node:
 
-Changes to translations as well as new translations can be submitted to
-[Bitcoin Core's Transifex page](https://www.transifex.com/bitcoin/bitcoin/).
-
-Translations are periodically pulled from Transifex and merged into the git repository. See the
-[translation process](doc/translation_process.md) for details on how this works.
-
-**Important**: We do not accept translation changes as GitHub pull requests because the next
-pull from Transifex would automatically overwrite them again.
+https://armantheparman.com/6reasonsnode
